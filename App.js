@@ -6,6 +6,7 @@ import ListItem from './components/ListItem';
 import AddItem from './components/AddItem';
 
 const App = () => {
+  // useState to handle items
   const [items, setItems] = useState([
     { id: uuid(), text: 'Milk' },
     { id: uuid(), text: 'Bread' },
@@ -13,13 +14,16 @@ const App = () => {
     { id: uuid(), text: 'Juice' }
   ]);
 
+  // delete item function
   const deleteItem = (id) => {
     setItems((prevItems) => {
       return prevItems.filter((item) => item.id != id);
     });
   };
 
+  // add item function
   const addItem = (text) => {
+    // if text is empty, throw an alert for user
     if (!text) {
       Alert.alert('Error', 'Please enter an item', { text: 'Ok' });
     } else {
